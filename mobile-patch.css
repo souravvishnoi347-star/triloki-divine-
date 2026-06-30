@@ -1,0 +1,62 @@
+/* --- MOBILE OPTIMIZATION PATCH --- */
+
+@media (max-width: 768px) {
+    /* Header & Navigation Fixes */
+    .top-nav-container {
+        padding: 10px 15px;
+    }
+    .nav-top {
+        flex-wrap: wrap;
+    }
+    .nav-announcement {
+        display: none !important; /* Hide the pill on very small screens to save space */
+    }
+    
+    /* Hero Title Scaling */
+    .huge-title {
+        font-size: 2.5rem !important;
+        padding: 0 15px;
+    }
+    .title-light {
+        font-size: 2.5rem !important;
+    }
+    
+    /* About Us Page Adjustments */
+    .package-hero {
+        padding-top: 100px !important;
+    }
+    .package-hero h1 {
+        font-size: 2.2rem !important;
+    }
+    .package-hero p {
+        font-size: 1rem !important;
+        padding: 0 15px;
+    }
+    
+    /* Footer Stacking */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+    .footer-contact ul, .footer-links ul {
+        align-items: center;
+    }
+    .footer-contact ul li {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .huge-title {
+        font-size: 2rem !important;
+    }
+    .title-light {
+        font-size: 2rem !important;
+    }
+    .trust-badges {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

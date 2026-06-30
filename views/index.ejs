@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Tags -->
+    <title>Char Dham Yatra 2026 | Premium Kedarnath Helicopter Booking | Triloki Divine Journey</title>
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <meta name="description" content="Book your premium Char Dham Yatra 2026 with Triloki Divine Journey. Exclusive Kedarnath helicopter booking, Do Dham packages, and VIP Darshan in Uttarakhand.">
+    <meta name="keywords" content="Char Dham Yatra 2026, Kedarnath Helicopter Booking, Premium Helicopter Tours Uttarakhand, Do Dham Package, Badrinath VIP Darshan, Triloki Divine Journey">
+    <meta name="author" content="Triloki Divine Journey">
+    <link rel="canonical" href="https://trilokidivinejourney.com/">
+    
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="Char Dham Yatra 2026 & Premium Kedarnath Helicopter Booking">
+    <meta property="og:description" content="Book your premium Char Dham Yatra 2026 with Triloki Divine Journey. Exclusive Kedarnath helicopter booking and VIP Darshan.">
+    <meta property="og:image" content="https://trilokidivinejourney.com/assets/logo.png">
+    <meta property="og:url" content="https://trilokidivinejourney.com/">
+    <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="premium.css">
+
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Triloki Divine Journey",
+      "image": "https://trilokidivinejourney.com/assets/logo.png",
+      "@id": "https://trilokidivinejourney.com",
+      "url": "https://trilokidivinejourney.com",
+      "telephone": "<%= settings.phone %>",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dehradun, Uttarakhand",
+        "addressRegion": "UK",
+        "addressCountry": "IN"
+      },
+      "description": "Book your premium Char Dham Yatra 2026 and Kedarnath Helicopter Packages with Triloki Divine Journey.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "342"
+      }
+    }
+    </script>
+</head>
+<body>
+    <main>
+    <!-- Modern Two-Tier Navbar -->
+    <header class="top-nav-container">
+        <div class="nav-top">
+            <a href="/" class="logo">
+                <img src="assets/logo.png" alt="Triloki Divine Journey">
+            </a>
+            
+            <div class="nav-announcement">
+                <span class="pulse-dot"></span>
+                <span class="announcement-text">Bookings Open for Char Dham Yatra 2026</span>
+                <a href="#" onclick="document.getElementById('inquiryModal').style.display='flex'" class="announcement-link">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="https://www.instagram.com/trilokigroup/" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i> <span>2.2k</span></a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Sub Navbar with Emojis -->
+        <div class="nav-bottom border-bottom">
+            <div class="nav-bottom-scroll container">
+                <a href="#premium-heli-packages" class="emoji-link">🚁 Heli Tours</a>
+                <a href="#mixed-journeys" class="emoji-link">🚍 Road Tours</a>
+                <a href="#premium-heli-packages" class="emoji-link">🏔️ Char Dham</a>
+                <a href="#testimonials" class="emoji-link">🤝 Testimonials</a>
+                <a href="/about" class="emoji-link">📌 About Us</a>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#premium-heli-packages">Heli Tours</a>
+        <a href="#mixed-journeys">Road Tours</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Modern Rounded Hero Section -->
+    <section id="home" class="hero-modern">
+        <div class="hero-bg-container">
+            <video class="hero-bg-video" autoplay loop muted playsinline>
+                <source src="assets/hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay-gradient"></div>
+        </div>
+        
+        <div class="hero-content-modern">
+            <h1 class="huge-title">
+                <span class="title-light">Triloki</span> Divine Journey
+                <span style="display:block; font-size: 0.35em; margin-top: 10px; font-weight: 400; opacity: 0.9;">Premium Heli Tours in Uttarakhand</span>
+            </h1>
+            
+            <div class="trust-badges">
+                <div class="trust-badge"><i class="fa-solid fa-headset text-primary"></i> <span>24×7 Support</span></div>
+                <div class="trust-badge"><i class="fa-solid fa-gem text-primary"></i> <span>100% Personalised</span></div>
+                <div class="trust-badge"><i class="fa-solid fa-star text-primary"></i> <span>4.9+ Rated</span></div>
+            </div>
+            
+            <p class="hero-subtitle">#India's Premium Spiritual Travel Brand</p>
+        </div>
+    </section>
+
+    <!-- Premium Helicopter Packages -->
+    <section id="premium-heli-packages" class="premium-packages-section">
+        <div class="section-header">
+            <h2>Premium Helicopter Packages</h2>
+            <p>Experience the ultimate luxury and convenience with our exclusive aerial pilgrimages.</p>
+        </div>
+        <div class="premium-grid">
+            <% packages.filter(p => p.category === 'Premium Heli').forEach(pkg => { %>
+            <div class="premium-card">
+                <div class="premium-card-img-wrapper">
+                    <div class="premium-card-bg" style="background-image: url('assets/<%= pkg.cover_image %>');"></div>
+                    <div class="premium-badges">
+                        <span class="badge transport" style="background: <%= pkg.transport_badge === 'Helicopter' ? '#ff5e00' : '#1a237e' %>; color: white;">
+                            <i class="fa-solid fa-helicopter"></i> <%= pkg.transport_badge %>
+                        </span>
+                        <span class="badge vip">VIP Darshan</span>
+                    </div>
+                </div>
+                <div class="premium-card-content">
+                    <h3><%= pkg.title %></h3>
+                    <div class="premium-details">
+                        <p><i class="fa-regular fa-clock"></i> <%= pkg.duration %></p>
+                        <p><i class="fa-solid fa-route"></i> <%= pkg.route %></p>
+                    </div>
+                    <ul class="premium-inclusions">
+                        <% pkg.inclusions.split('|').forEach(inc => { %>
+                        <li><i class="fa-solid fa-check"></i> <%= inc %></li>
+                        <% }) %>
+                    </ul>
+                    <div class="premium-footer">
+                        <div class="premium-price">₹<%= pkg.price %> <span>per person</span></div>
+                        <a href="/package/<%= pkg.id %>" class="btn primary-btn btn-full">View Full Itinerary</a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <!-- Road & Mixed Spiritual Journeys -->
+    <section id="mixed-journeys" class="premium-packages-section" style="background: var(--bg-light); color: var(--text-main);">
+        <div class="section-header">
+            <h2 style="color: var(--secondary);">Road & Mixed Spiritual Journeys</h2>
+            <p style="color: var(--text-light);">Discover the sacred paths through diverse terrains with our thoughtfully crafted itineraries.</p>
+        </div>
+        <div class="premium-grid">
+            <% packages.filter(p => p.category === 'Mixed').forEach(pkg => { %>
+            <div class="premium-card">
+                <div class="premium-card-img-wrapper">
+                    <div class="premium-card-bg" style="background-image: url('assets/<%= pkg.cover_image %>');"></div>
+                    <div class="premium-badges">
+                        <span class="badge transport" style="background: <%= pkg.transport_badge === 'Road' ? '#1a237e' : (pkg.transport_badge === 'Road+Heli' ? '#d4af37' : '#ff5e00') %>; color: <%= pkg.transport_badge === 'Road+Heli' ? '#1a237e' : 'white' %>;">
+                            By <%= pkg.transport_badge.replace('+', ' & ') %>
+                        </span>
+                    </div>
+                </div>
+                <div class="premium-card-content">
+                    <h3><%= pkg.title %></h3>
+                    <div class="premium-details">
+                        <p><i class="fa-regular fa-clock"></i> <%= pkg.duration %></p>
+                        <p><i class="fa-solid fa-route"></i> <%= pkg.route %></p>
+                    </div>
+                    <ul class="premium-inclusions">
+                        <% pkg.inclusions.split('|').forEach(inc => { %>
+                        <li><i class="fa-solid fa-check"></i> <%= inc %></li>
+                        <% }) %>
+                    </ul>
+                    <div class="premium-footer">
+                        <div class="premium-price">₹<%= pkg.price %> <span>per person</span></div>
+                        <a href="/package/<%= pkg.id %>" class="btn primary-btn btn-full">View Full Itinerary</a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="section-header" style="margin-bottom: 20px;">
+            <h2>What Our Pilgrims Say</h2>
+            <div class="divider"></div>
+            <p class="about-subtitle">Read about the divine experiences of our valued yatris.</p>
+        </div>
+        
+        <div style="display: flex; justify-content: center; margin-bottom: 40px;">
+            <div class="google-review-badge">
+                <div class="g-icon-wrapper">
+                    <i class="fa-brands fa-google"></i>
+                </div>
+                <div class="g-content-horizontal">
+                    <div class="g-stars-row">
+                        <span class="g-score">4.9</span>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="g-text-row">Based on <strong>300+</strong> reviews</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="review-carousel-container">
+            
+            <div class="review-carousel" id="reviewCarousel">
+                <% if(typeof reviews !== 'undefined') { %>
+                    <% reviews.videos.forEach((vid, index) => { %>
+                    <div class="review-card video-card">
+                        <video class="review-video" src="/assets/<%= vid %>" preload="none" loop muted playsinline></video>
+                        <div class="video-overlay">
+                            <i class="fa-solid fa-circle-play"></i>
+                        </div>
+                    </div>
+                    <% }) %>
+                    
+                    <% reviews.images.forEach((img, index) => { %>
+                    <div class="review-card image-card">
+                        <img src="/assets/<%= img %>" alt="Testimonial <%= index + 1 %>" loading="lazy">
+                    </div>
+                    <% }) %>
+                <% } %>
+            </div>
+            
+            <button class="carousel-nav prev" id="revPrevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-nav next" id="revNextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>   </div>
+
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-header">
+            <h2>Why Journey With Us?</h2>
+            <div class="divider"></div>
+            <p class="about-subtitle">We are premium spiritual tour integrators providing end-to-end luxury hospitality.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-helicopter"></i></div>
+                <h3>Safe & Seamless Transport</h3>
+                <p>Enjoy flawless connectivity via state-of-the-art helicopters and premium luxury road vehicles.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-bed"></i></div>
+                <h3>Verified Luxury Stays</h3>
+                <p>Rest in comfort with our carefully curated, hygiene-focused, and premium accommodations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-hands-praying"></i></div>
+                <h3>End-to-End Hospitality</h3>
+                <p>From VIP Darshan passes to special puja arrangements, we handle all logistics for a hassle-free yatra.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-user-tie"></i></div>
+                <h3>Expert Local Guides</h3>
+                <p>Gain deep spiritual insights with our knowledgeable and verified local guides accompanying you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#home" class="logo">
+                    <img src="assets/logo.png" alt="Triloki Tours & Travels Logo">
+                </a>
+                <p>Your trusted partner for premium spiritual journeys and luxury pilgrimage experiences across India.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#packages">Char Dham Packages</a></li>
+                    <li><a href="#heli">Heli Tours</a></li>
+                    <li><a href="/about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Information</h3>
+                <ul>
+                    <li><i class="fa-solid fa-phone"></i> <%= settings.phone %> | +91 9193336211</li>
+                    <li><i class="fa-solid fa-envelope"></i> <%= settings.email %></li>
+                    <li><i class="fa-solid fa-location-dot"></i> <%= settings.location %></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="disclaimer">Disclaimer: We are tour integrators. Helicopter services are subject to weather conditions and DGCA guidelines.</p>
+            <p>&copy; 2026 Triloki hospitality. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Inquiry Modal -->
+    <div class="modal" id="inquiryModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Request a Quote</h2>
+            <p>Fill out your details and our spiritual journey expert will contact you shortly.</p>
+            <form class="inquiry-form" onsubmit="event.preventDefault(); closeModal(); alert('Thank you! We will contact you soon.');">
+                <input type="text" placeholder="Full Name" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <input type="email" placeholder="Email Address">
+                <select>
+                    <option value="">Select Package</option>
+                    <option value="dodham">Do Dham Yatra (Heli)</option>
+                    <option value="chardham-road">Char Dham Premium (Road)</option>
+                    <option value="chardham-heli">Complete Char Dham (Heli)</option>
+                    <option value="ekdham">Ek Dham Yatra (Road)</option>
+                </select>
+                <button type="submit" class="cta-btn primary-btn submit-btn">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pkg ? 'Edit' : 'Add' %> Package | Triloki</title>
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; background: #f4f7f6; margin: 0; }
+        .sidebar { width: 250px; background: #0a192f; color: white; height: 100vh; position: fixed; padding: 20px; box-sizing: border-box; }
+        .sidebar a { color: white; text-decoration: none; display: block; margin: 15px 0; font-size: 1.1rem; }
+        .sidebar a:hover { color: #ff7b00; }
+        .main-content { margin-left: 250px; padding: 40px; }
+        .form-container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); max-width: 800px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 500; }
+        input[type="text"], select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; box-sizing: border-box; }
+        textarea { height: 150px; resize: vertical; }
+        .btn { padding: 12px 20px; background: #0a192f; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; }
+        .btn:hover { background: #ff7b00; }
+        .cancel-btn { background: #ccc; margin-left: 10px; text-decoration: none; color: #333; padding: 12px 20px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <a href="/admin">Packages</a>
+        <a href="/admin/settings">Site Settings</a>
+        <a href="/admin/logout" style="margin-top: 50px; color: #ff4c4c;">Logout</a>
+    </div>
+    
+    <div class="main-content">
+        <h2><%= pkg ? 'Edit Tour Package' : 'Add New Tour Package' %></h2>
+        
+        <div class="form-container">
+            <form action="<%= pkg ? '/admin/package/edit/' + pkg.id : '/admin/package/new' %>" method="POST" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                    <label>Package Title</label>
+                    <input type="text" name="title" value="<%= pkg ? pkg.title : '' %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Category (Controls which grid it appears in)</label>
+                    <select name="category">
+                        <option value="Premium Heli" <%= pkg && pkg.category === 'Premium Heli' ? 'selected' : '' %>>Premium Helicopter Packages</option>
+                        <option value="Mixed" <%= pkg && pkg.category === 'Mixed' ? 'selected' : '' %>>Road & Mixed Spiritual Journeys</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Transport Badge</label>
+                    <select name="transport_badge">
+                        <option value="Helicopter" <%= pkg && pkg.transport_badge === 'Helicopter' ? 'selected' : '' %>>Helicopter 🚁</option>
+                        <option value="Road" <%= pkg && pkg.transport_badge === 'Road' ? 'selected' : '' %>>Road 🚍</option>
+                        <option value="Road+Heli" <%= pkg && pkg.transport_badge === 'Road+Heli' ? 'selected' : '' %>>Road + Heli 🚁</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Cover Image (Upload to change)</label>
+                    <input type="file" name="cover_image" accept="image/*">
+                    <% if(pkg && pkg.cover_image) { %>
+                        <p>Current: <%= pkg.cover_image %></p>
+                    <% } %>
+                </div>
+
+                <div style="display: flex; gap: 20px;">
+                    <div class="form-group" style="flex: 1;">
+                        <label>Duration (e.g. 3 Nights / 4 Days)</label>
+                        <input type="text" name="duration" value="<%= pkg ? pkg.duration : '' %>" required>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>Route (e.g. Dehradun to Dehradun)</label>
+                        <input type="text" name="route" value="<%= pkg ? pkg.route : '' %>" required>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>Price (Number/Text)</label>
+                        <input type="text" name="price" value="<%= pkg ? pkg.price : '' %>" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Inclusions (Separate with | )</label>
+                    <input type="text" name="inclusions" value="<%= pkg ? pkg.inclusions : 'VIP Darshan|Premium Stays' %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Exclusions (Separate with | )</label>
+                    <input type="text" name="exclusions" value="<%= pkg && pkg.exclusions ? pkg.exclusions : 'GST (5%) is applicable extra.|Any personal expenses' %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Important Notes (Separate with | )</label>
+                    <input type="text" name="important_notes" value="<%= pkg && pkg.important_notes ? pkg.important_notes : 'MUST CARRY: Authentic Government ID Card.|Package prices are dynamic' %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Full Itinerary Details</label>
+                    <textarea name="itinerary_details" required><%= pkg ? pkg.itinerary_details : '' %></textarea>
+                </div>
+
+                <button type="submit" class="btn">Save Package</button>
+                <a href="/admin" class="cancel-btn">Cancel</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

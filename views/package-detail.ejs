@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pkg.title %> | Triloki Divine Journey</title>
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <meta name="description" content="Book the <%= pkg.title %> package. <%= pkg.duration %>, <%= pkg.route %>. Inclusions: <%= pkg.inclusions.replace(/\|/g, ', ') %>">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/premium.css">
+    
+    <!-- JSON-LD Schema Markup for Tour -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristTrip",
+      "name": "<%= pkg.title %>",
+      "description": "Book the <%= pkg.title %> package. <%= pkg.duration %>, <%= pkg.route %>.",
+      "image": "https://trilokidivinejourney.com/assets/<%= pkg.cover_image %>",
+      "provider": {
+        "@type": "TravelAgency",
+        "name": "Triloki Divine Journey"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": "<%= parseInt(pkg.price.replace(/,/g, '')) || pkg.price %>",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+</head>
+<body style="background-color: #f9f9f9; color: #333;">
+    <!-- Simple Navbar -->
+    <header class="top-nav-container" style="position: relative; background: white;">
+        <div class="nav-top">
+            <a href="/" class="logo">
+                <img src="/assets/logo.png" alt="Triloki Divine Journey">
+            </a>
+            <div class="nav-actions">
+                <a href="/" class="btn primary-btn" style="background: none; color: var(--text-main); border: 1px solid var(--border);">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="package-container container">
+        <!-- Package Header -->
+        <div class="package-header">
+            <div class="header-left">
+                <h1 class="package-title"><em>Premium</em> <%= pkg.title %></h1>
+                <p class="package-duration">Duration: <strong><%= pkg.duration %></strong></p>
+            </div>
+            <div class="header-right">
+                <p><i class="fa-solid fa-location-dot"></i> Destination: <strong><%= pkg.route.split(' to ')[1] || 'Multiple' %></strong></p>
+                <p><i class="fa-regular fa-paper-plane"></i> Pickup/Drop: <strong><%= pkg.route %></strong></p>
+            </div>
+        </div>
+
+        <!-- Image Gallery Grid -->
+        <div class="gallery-grid">
+            <img src="/assets/<%= pkg.cover_image %>" alt="<%= pkg.title %>" class="gallery-main">
+            <% if (pkg.title.toLowerCase().includes('char dham')) { %>
+                <img src="/assets/chardham_1.jpg" alt="Char Dham Scene 1">
+                <img src="/assets/chardham_2.jpg" alt="Char Dham Scene 2">
+                <img src="/assets/chardham_3.jpg" alt="Char Dham Scene 3">
+                <img src="/assets/chardham_4.jpg" alt="Char Dham Scene 4">
+            <% } else { %>
+                <img src="https://placehold.co/600x400/eeeeee/999999?text=Image+1" alt="Placeholder 1">
+                <img src="https://placehold.co/600x400/eeeeee/999999?text=Image+2" alt="Placeholder 2">
+                <img src="https://placehold.co/600x400/eeeeee/999999?text=Image+3" alt="Placeholder 3">
+                <img src="https://placehold.co/600x400/eeeeee/999999?text=Image+4" alt="Placeholder 4">
+            <% } %>
+        </div>
+
+        <!-- Layout: Content & Sidebar -->
+        <div class="package-layout">
+            
+            <div class="package-main-content">
+                <!-- Sticky Tabs -->
+                <div class="package-tabs" id="packageTabs">
+                    <button class="tab-btn active" data-target="overview">Overview</button>
+                    <button class="tab-btn" data-target="inclusions">Inclusions</button>
+                    <button class="tab-btn" data-target="costing">Costing</button>
+                    <button class="tab-btn" data-target="about">About Trip</button>
+                </div>
+
+                <!-- Tab Content: Overview -->
+                <div class="tab-content active" id="overview">
+                    <h2 class="content-title">Tour Itinerary</h2>
+                    
+                    <div class="itinerary-list">
+                        <% 
+                        const lines = (pkg.itinerary_details || '').split('\n');
+                        let currentDay = '';
+                        let hasDays = false;
+                        
+                        lines.forEach(line => {
+                            const trimmedLine = line.trim();
+                            if (!trimmedLine) return;
+
+                            if (trimmedLine.toLowerCase().startsWith('day')) {
+                                hasDays = true;
+                                if (currentDay !== '') {
+                                    %> </div> <% // close previous day-content
+                                }
+                                currentDay = trimmedLine;
+                                %>
+                                <div class="day-header"><%= currentDay %></div>
+                                <div class="day-content">
+                                <%
+                            } else {
+                                %>
+                                <div class="itinerary-bullet">
+                                    <span class="bullet-icon"><i class="fa-solid fa-angle-right"></i></span>
+                                    <p><%= trimmedLine %></p>
+                                </div>
+                                <%
+                            }
+                        });
+                        if (currentDay !== '') {
+                            %> </div> <% // close last day-content
+                        }
+                        
+                        if (!hasDays && lines.length > 0) {
+                            %>
+                            <div class="day-content" style="padding-top: 20px;">
+                                <p style="line-height: 1.8;"><%= pkg.itinerary_details %></p>
+                            </div>
+                            <%
+                        }
+                        %>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Inclusions -->
+                <div class="tab-content" id="inclusions">
+                    <div class="inclusions-grid">
+                        <div class="includes-col">
+                            <h2 class="content-title">Includes:</h2>
+                            <ul class="inc-list">
+                                <% (pkg.inclusions || 'VIP Darshan|Premium Stays').split('|').forEach(inc => { %>
+                                <li>
+                                    <span class="inc-icon check"><i class="fa-solid fa-check"></i></span>
+                                    <p><%= inc %></p>
+                                </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                        <div class="excludes-col">
+                            <h2 class="content-title">Excludes:</h2>
+                            <ul class="inc-list">
+                                <% (pkg.exclusions || 'GST (5%) is applicable extra.|Any personal expenses').split('|').forEach(exc => { %>
+                                <li>
+                                    <span class="inc-icon cross"><i class="fa-solid fa-xmark"></i></span>
+                                    <p><%= exc %></p>
+                                </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Costing -->
+                <div class="tab-content" id="costing">
+                    <h2 class="content-title">Costing Details</h2>
+                    <p>Prices are based on double sharing. For triple sharing or solo travel options, please contact us for a detailed quote.</p>
+                </div>
+
+                <!-- Tab Content: About Trip -->
+                <div class="tab-content" id="about">
+                    <div class="important-notes-box">
+                        <h3>Important Notes</h3>
+                        <ul>
+                            <% (pkg.important_notes || 'MUST CARRY: Authentic Government ID Card.').split('|').forEach(note => { %>
+                            <li><%= note %></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sticky Sidebar -->
+            <div class="package-sidebar-container">
+                <div class="package-sidebar">
+                    <h3>Book This Tour</h3>
+                    <div class="price-display">
+                        <span class="current-price">₹<%= pkg.price %></span>
+                        <% 
+                        // Mock up a discount price for the design
+                        const priceNum = parseInt(pkg.price.replace(/,/g, ''));
+                        const oldPrice = priceNum ? (priceNum + 6000).toLocaleString('en-IN') : pkg.price;
+                        %>
+                        <span class="old-price">₹<%= oldPrice %></span>
+                        <span class="save-tag">Save ₹6,000</span>
+                    </div>
+                    <p class="tax-note">+ tax as applicable</p>
+
+                    <div class="booking-form">
+                        <label>Select Date</label>
+                        <select class="form-select">
+                            <option>Select Custom Date</option>
+                            <option>Next Available: Tomorrow</option>
+                        </select>
+
+                        <label>Tour Option</label>
+                        <div class="tour-option selected">
+                            <span>Standard Package (Double Sharing)</span>
+                            <strong>₹<%= pkg.price %></strong>
+                        </div>
+
+                        <a href="#contact" class="btn primary-btn btn-full" style="padding: 15px; font-size: 1.1rem; margin-top: 20px;">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer" style="padding: 40px 5%; background: var(--secondary); color: white; text-align: center; margin-top: 80px;">
+        <p>&copy; 2026 Triloki hospitality. All rights reserved.</p>
+    </footer>
+
+    <!-- Tab Switching Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active from all
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+
+                    // Add active to clicked
+                    btn.classList.add('active');
+                    const targetId = btn.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

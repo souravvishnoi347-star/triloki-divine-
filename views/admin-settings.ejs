@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Settings | Triloki</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; background: #f4f7f6; margin: 0; }
+        .sidebar { width: 250px; background: #0a192f; color: white; height: 100vh; position: fixed; padding: 20px; box-sizing: border-box; }
+        .sidebar a { color: white; text-decoration: none; display: block; margin: 15px 0; font-size: 1.1rem; }
+        .sidebar a:hover { color: #ff7b00; }
+        .main-content { margin-left: 250px; padding: 40px; }
+        .form-container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); max-width: 600px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 500; }
+        input[type="text"], textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; box-sizing: border-box; }
+        .btn { padding: 12px 20px; background: #0a192f; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; }
+        .btn:hover { background: #ff7b00; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <a href="/admin">Packages</a>
+        <a href="/admin/settings">Site Settings</a>
+        <a href="/admin/logout" style="margin-top: 50px; color: #ff4c4c;">Logout</a>
+    </div>
+    
+    <div class="main-content">
+        <h2>Global Site Settings</h2>
+        
+        <div class="form-container">
+            <form action="/admin/settings" method="POST">
+                
+                <div class="form-group">
+                    <label>Hero Heading</label>
+                    <textarea name="hero_heading" rows="3" required><%= settings.hero_heading %></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Contact Phone Number</label>
+                    <input type="text" name="phone" value="<%= settings.phone %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Contact Email</label>
+                    <input type="text" name="email" value="<%= settings.email %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Office Location</label>
+                    <input type="text" name="location" value="<%= settings.location %>" required>
+                </div>
+
+                <button type="submit" class="btn">Save Settings</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
