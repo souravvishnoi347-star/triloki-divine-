@@ -200,7 +200,12 @@ app.post('/admin/settings', isAuthenticated, (req, res) => {
         });
 });
 
-// Start Server
-app.listen(PORT, () => {
-    console.log(`CMS Server is running on http://localhost:${PORT}`);
-});
+// Start Server (local dev only)
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`CMS Server is running on http://localhost:${PORT}`);
+    });
+}
+
+// Export for Vercel
+module.exports = app;
