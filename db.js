@@ -1,8 +1,20 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const bcrypt = require('bcrypt');
+const fs = require('fs');
 
-const dbPath = path.resolve(__dirname, 'database.sqlite');
+// On Vercel, use /tmp (writable). Locally, use project directory.
+const isVercel = process.env.VERCEL === '1';
+const dbPath = isVercel ? '/tmp/database.sqlite' : path.resolve(__dirname, 'database.sqlite');
+
+// Copy the bundled database to /tmp on Vercel (cold start)
+if (isVercel) {
+    const srcDb = path.resolve(__dirname, 'database.sqlite');
+    if (fs.existsSync(srcDb) && !fs.existsSync(dbPath)) {
+        fs.copyFileSync(srcDb, dbPath);
+    }
+}
+
 const db = new sqlite3.Database(dbPath);
 
 // Initialize DB schema
