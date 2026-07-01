@@ -3,7 +3,18 @@
   "builds": [
     {
       "src": "server.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "views/**",
+          "assets/**",
+          "style.css",
+          "premium.css",
+          "mobile-patch.css",
+          "script.js",
+          "database.sqlite"
+        ]
+      }
     }
   ],
   "routes": [
