@@ -62,6 +62,12 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/chardham', (req, res) => {
+    db.get('SELECT * FROM Settings WHERE id = 1', (err, settings) => {
+        res.render('chardham', { settings });
+    });
+});
+
 app.get('/testimonials', (req, res) => {
     db.get('SELECT * FROM Settings WHERE id = 1', (err, settings) => {
         const fs = require('fs');
