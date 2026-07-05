@@ -22,7 +22,7 @@
     }
     
     /* About Us Page Adjustments */
-    .package-hero {
+    .package-hero, .about-massive-hero {
         padding-top: 100px !important;
     }
     .package-hero h1 {
