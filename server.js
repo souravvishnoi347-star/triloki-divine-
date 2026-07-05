@@ -62,6 +62,21 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/testimonials', (req, res) => {
+    db.get('SELECT * FROM Settings WHERE id = 1', (err, settings) => {
+        const fs = require('fs');
+        let reviews = { videos: [], images: [] };
+        try {
+            const files = fs.readdirSync(path.join(__dirname, 'assets'));
+            reviews.videos = files.filter(f => f.startsWith('review_vid_')).sort();
+            reviews.images = files.filter(f => f.startsWith('review_img_')).sort();
+        } catch(e) {
+            console.error('Error reading assets for reviews', e);
+        }
+        res.render('testimonials', { settings, reviews });
+    });
+});
+
 app.get('/about', (req, res) => {
     db.get('SELECT * FROM Settings WHERE id = 1', (err, settings) => {
         res.render('about', { settings });
