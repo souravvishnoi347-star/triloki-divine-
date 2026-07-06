@@ -1,4 +1,4 @@
-/* Design System */
+﻿/* Design System */
 :root {
     --primary: #ff5e00; /* Brighter orange */
     --primary-dark: #cc4a00;
@@ -858,9 +858,7 @@ ul {
 
 @media (max-width: 768px) {
     /* Header & Navigation Fixes */
-    .top-nav-container {
-        padding: 10px 15px;
-    }
+    .top-nav-container { padding: 10px 2px; }
     .nav-top {
         flex-wrap: wrap;
     }
