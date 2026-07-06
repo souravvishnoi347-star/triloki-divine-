@@ -914,3 +914,23 @@ ul {
         gap: 15px;
     }
 }
+
+/* About Us Grids */
+.about-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-top: 40px;
+}
+.form-two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+@media (max-width: 768px) {
+    .about-hero-grid, .form-two-cols {
+        grid-template-columns: 1fr;
+    }
+}
+
