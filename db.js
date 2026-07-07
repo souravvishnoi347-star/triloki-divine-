@@ -48,6 +48,15 @@ db.serialize(() => {
         password_hash TEXT
     )`);
 
+    db.run(`CREATE TABLE IF NOT EXISTS Inquiries (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        phone TEXT NOT NULL,
+        email TEXT,
+        package_interest TEXT,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )`);
+
     // Seed default admin if not exists
     db.get("SELECT * FROM Admins WHERE email = 'admin@triloki.in'", (err, row) => {
         if (!row) {
