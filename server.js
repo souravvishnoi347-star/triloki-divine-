@@ -77,7 +77,9 @@ app.post('/api/inquiry', (req, res) => {
                     method: "POST",
                     headers: { 
                         'Content-Type': 'application/json',
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'Origin': 'https://trilokidivinejourney.com',
+                        'Referer': 'https://trilokidivinejourney.com/'
                     },
                     body: JSON.stringify({
                         _subject: "New Website Inquiry: " + name,
