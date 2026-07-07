@@ -222,12 +222,12 @@
                 <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: white;">Ready for the Journey of a Lifetime?</h2>
                 <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 40px; color: rgba(255,255,255,0.8);">Let our founders personally craft and manage your flawless spiritual experience in Uttarakhand.</p>
                 
-                <form class="inquiry-form" onsubmit="event.preventDefault(); alert('Thank you! We will contact you soon.');" style="background: white; padding: 40px; border-radius: 20px; max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <form class="inquiry-form" onsubmit="handleInquirySubmit(event)" style="background: white; padding: 40px; border-radius: 20px; max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                     <div class="form-two-cols">
-                        <input type="text" placeholder="Full Name" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem;">
-                        <input type="tel" placeholder="Phone Number" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem;">
+                        <input type="text" name="name" placeholder="Full Name" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem;">
+                        <input type="tel" name="phone" placeholder="Phone Number" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem;">
                     </div>
-                    <input type="email" placeholder="Email Address" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem;">
+                    <input type="email" name="email" placeholder="Email Address" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem;">
                     <select style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem; color: #333; background: white;">
                         <option value="">Select Package</option>
                         <option value="dodham">Do Dham Yatra (Heli)</option>
@@ -285,16 +285,15 @@
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h2>Request a Quote</h2>
             <p>Fill out your details and our spiritual journey expert will contact you shortly.</p>
-            <form class="inquiry-form" onsubmit="event.preventDefault(); closeModal(); alert('Thank you! We will contact you soon.');">
-                <input type="text" placeholder="Full Name" required>
-                <input type="tel" placeholder="Phone Number" required>
-                <input type="email" placeholder="Email Address">
-                <select>
+            <form class="inquiry-form" onsubmit="handleInquirySubmit(event)" >
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <input type="email" name="email" placeholder="Email Address">
+                <select name="package">
                     <option value="">Select Package</option>
-                    <option value="dodham">Do Dham Yatra (Heli)</option>
-                    <option value="chardham-road">Char Dham Premium (Road)</option>
-                    <option value="chardham-heli">Complete Char Dham (Heli)</option>
-                    <option value="ekdham">Ek Dham Yatra (Road)</option>
+                    <% if (typeof packages !== 'undefined' && packages) { packages.forEach(pkg => { %>
+                        <option value="<%= pkg.title %>"><%= pkg.title %></option>
+                    <% }); } %>
                 </select>
                 <button type="submit" class="cta-btn primary-btn submit-btn">Submit Request</button>
             </form>

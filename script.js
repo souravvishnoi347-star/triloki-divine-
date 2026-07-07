@@ -166,3 +166,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+async function handleInquirySubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Disable button to prevent double submission
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+        const response = await fetch('/api/inquiry', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        const result = await response.json();
+        if (result.success) {
+            alert('Thank you! We will contact you soon.');
+            form.reset();
+            if (typeof closeModal === 'function') {
+                try { closeModal(); } catch(e) {}
+            }
+        } else {
+            alert('Something went wrong. Please try again.');
+        }
+    } catch (err) {
+        alert('Something went wrong. Please check your connection and try again.');
+    } finally {
+        if (submitBtn) submitBtn.disabled = false;
+    }
+}
+

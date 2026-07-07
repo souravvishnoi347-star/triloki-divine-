@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -58,6 +58,35 @@
                     </td>
                 </tr>
                 <% }) %>
+            </tbody>
+        </table>
+        <h2 style="margin-top: 50px;">Customer Inquiries</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Package Interest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (typeof inquiries !== 'undefined' && inquiries && inquiries.length > 0) { %>
+                    <% inquiries.forEach(inq => { %>
+                    <tr>
+                        <td><%= new Date(inq.created_at).toLocaleString('en-IN') %></td>
+                        <td><strong><%= inq.name %></strong></td>
+                        <td><%= inq.phone %></td>
+                        <td><%= inq.email || '-' %></td>
+                        <td><%= inq.package_interest || '-' %></td>
+                    </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: #666;">No inquiries yet.</td>
+                    </tr>
+                <% } %>
             </tbody>
         </table>
     </div>

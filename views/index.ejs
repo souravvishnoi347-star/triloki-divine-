@@ -322,16 +322,15 @@
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h2>Request a Quote</h2>
             <p>Fill out your details and our spiritual journey expert will contact you shortly.</p>
-            <form class="inquiry-form" onsubmit="event.preventDefault(); closeModal(); alert('Thank you! We will contact you soon.');">
-                <input type="text" placeholder="Full Name" required>
-                <input type="tel" placeholder="Phone Number" required>
-                <input type="email" placeholder="Email Address">
-                <select>
+            <form class="inquiry-form" onsubmit="handleInquirySubmit(event)" >
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <input type="email" name="email" placeholder="Email Address">
+                <select name="package">
                     <option value="">Select Package</option>
-                    <option value="dodham">Do Dham Yatra (Heli)</option>
-                    <option value="chardham-road">Char Dham Premium (Road)</option>
-                    <option value="chardham-heli">Complete Char Dham (Heli)</option>
-                    <option value="ekdham">Ek Dham Yatra (Road)</option>
+                    <% if (typeof packages !== 'undefined' && packages) { packages.forEach(pkg => { %>
+                        <option value="<%= pkg.title %>"><%= pkg.title %></option>
+                    <% }); } %>
                 </select>
                 <button type="submit" class="cta-btn primary-btn submit-btn">Submit Request</button>
             </form>

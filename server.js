@@ -62,9 +62,24 @@ app.get('/', (req, res) => {
     });
 });
 
+
+
+app.post('/api/inquiry', (req, res) => {
+    const { name, phone, email, package: pkgInterest } = req.body;
+    db.run('INSERT INTO Inquiries (name, phone, email, package_interest) VALUES (?, ?, ?, ?)',
+        [name, phone, email, pkgInterest],
+        function(err) {
+            if (err) return res.status(500).json({ error: 'Database error' });
+            res.json({ success: true, message: 'Inquiry saved successfully!' });
+        }
+    );
+});
+
 app.get('/chardham', (req, res) => {
     db.get('SELECT * FROM Settings WHERE id = 1', (err, settings) => {
-        res.render('chardham', { settings });
+        db.all('SELECT * FROM TourPackages', (err, packages) => {
+            res.render('chardham', { settings, packages });
+        });
     });
 });
 
@@ -79,13 +94,17 @@ app.get('/testimonials', (req, res) => {
         } catch(e) {
             console.error('Error reading assets for reviews', e);
         }
-        res.render('testimonials', { settings, reviews });
+        db.all('SELECT * FROM TourPackages', (err, packages) => {
+                res.render('testimonials', { settings, reviews, packages });
+            });
     });
 });
 
 app.get('/about', (req, res) => {
     db.get('SELECT * FROM Settings WHERE id = 1', (err, settings) => {
-        res.render('about', { settings });
+        db.all('SELECT * FROM TourPackages', (err, packages) => {
+            res.render('about', { settings, packages });
+        });
     });
 });
 
@@ -94,7 +113,9 @@ app.get('/package/:id', (req, res) => {
     db.get('SELECT * FROM Settings WHERE id = 1', (err, settings) => {
         db.get('SELECT * FROM TourPackages WHERE id = ?', [pkgId], (err, pkg) => {
             if (!pkg) return res.status(404).send('Package not found');
-            res.render('package-detail', { settings, pkg });
+            db.all('SELECT * FROM TourPackages', (err, packages) => {
+                res.render('package-detail', { settings, pkg, packages });
+            });
         });
     });
 });
@@ -152,7 +173,9 @@ app.get('/admin/logout', (req, res) => {
 
 app.get('/admin', isAuthenticated, (req, res) => {
     db.all('SELECT * FROM TourPackages', (err, packages) => {
-        res.render('admin-dashboard', { packages });
+        db.all('SELECT * FROM Inquiries ORDER BY created_at DESC', (err, inquiries) => {
+            res.render('admin-dashboard', { packages, inquiries: inquiries || [] });
+        });
     });
 });
 
