@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,7 +18,7 @@
       "@type": "TouristTrip",
       "name": "<%= pkg.title %>",
       "description": "Book the <%= pkg.title %> package. <%= pkg.duration %>, <%= pkg.route %>.",
-      "image": "https://trilokidivinejourney.com/assets/<%= pkg.cover_image %>",
+      "image": "https://trilokigroup.in/assets/<%= pkg.cover_image %>",
       "provider": {
         "@type": "TravelAgency",
         "name": "Triloki Divine Journey"
@@ -179,14 +179,14 @@
                 <div class="package-sidebar">
                     <h3>Book This Tour</h3>
                     <div class="price-display">
-                        <span class="current-price">₹<%= pkg.price %></span>
+                        <span class="current-price">?<%= pkg.price %></span>
                         <% 
                         // Mock up a discount price for the design
                         const priceNum = parseInt(pkg.price.replace(/,/g, ''));
                         const oldPrice = priceNum ? (priceNum + 6000).toLocaleString('en-IN') : pkg.price;
                         %>
-                        <span class="old-price">₹<%= oldPrice %></span>
-                        <span class="save-tag">Save ₹6,000</span>
+                        <span class="old-price">?<%= oldPrice %></span>
+                        <span class="save-tag">Save ?6,000</span>
                     </div>
                     <p class="tax-note">+ tax as applicable</p>
 
@@ -200,7 +200,7 @@
                         <label>Tour Option</label>
                         <div class="tour-option selected">
                             <span>Standard Package (Double Sharing)</span>
-                            <strong>₹<%= pkg.price %></strong>
+                            <strong>?<%= pkg.price %></strong>
                         </div>
 
                         <a href="#contact" class="btn primary-btn btn-full" style="padding: 15px; font-size: 1.1rem; margin-top: 20px;">Book Now</a>
@@ -238,3 +238,4 @@
     </script>
 </body>
 </html>
+

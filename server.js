@@ -78,8 +78,8 @@ app.post('/api/inquiry', (req, res) => {
                     headers: { 
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
-                        'Origin': 'https://trilokidivinejourney.com',
-                        'Referer': 'https://trilokidivinejourney.com/'
+                        'Origin': 'https://trilokigroup.in',
+                        'Referer': 'https://trilokigroup.in/'
                     },
                     body: JSON.stringify({
                         _subject: "New Website Inquiry: " + name,
@@ -145,15 +145,15 @@ app.get('/package/:id', (req, res) => {
 
 app.get('/robots.txt', (req, res) => {
     res.type('text/plain');
-    res.send(`User-agent: *\nAllow: /\nSitemap: https://trilokidivinejourney.com/sitemap.xml`);
+    res.send(`User-agent: *\nAllow: /\nSitemap: https://trilokigroup.in/sitemap.xml`);
 });
 
 app.get('/sitemap.xml', (req, res) => {
     db.all('SELECT id FROM TourPackages', (err, packages) => {
-        let urls = `<url><loc>https://trilokidivinejourney.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>`;
+        let urls = `<url><loc>https://trilokigroup.in/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>`;
         if (packages) {
             packages.forEach(pkg => {
-                urls += `<url><loc>https://trilokidivinejourney.com/package/${pkg.id}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`;
+                urls += `<url><loc>https://trilokigroup.in/package/${pkg.id}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`;
             });
         }
         const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>`;
@@ -276,3 +276,4 @@ if (process.env.NODE_ENV !== 'production') {
 
 // Export for Vercel
 module.exports = app;
+

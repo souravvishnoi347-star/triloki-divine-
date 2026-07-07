@@ -25,13 +25,13 @@ const viewsDir = path.join(__dirname, 'views');
     <meta name="description" content="${desc}">
     <meta name="keywords" content="Char Dham Yatra 2026, Kedarnath Helicopter Booking, Premium Helicopter Tours Uttarakhand, Do Dham Package, Badrinath VIP Darshan, Triloki Divine Journey">
     <meta name="author" content="Triloki Divine Journey">
-    <link rel="canonical" href="https://trilokidivinejourney.com/">
+    <link rel="canonical" href="https://trilokigroup.in/">
     
     <!-- Open Graph for Social Sharing -->
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${desc}">
-    <meta property="og:image" content="https://trilokidivinejourney.com/assets/logo.png">
-    <meta property="og:url" content="https://trilokidivinejourney.com/">
+    <meta property="og:image" content="https://trilokigroup.in/assets/logo.png">
+    <meta property="og:url" content="https://trilokigroup.in/">
     <meta property="og:type" content="website">`;
 
         // The old block to replace
@@ -55,9 +55,9 @@ const viewsDir = path.join(__dirname, 'views');
       "@context": "https://schema.org",
       "@type": "TravelAgency",
       "name": "Triloki Divine Journey",
-      "image": "https://trilokidivinejourney.com/assets/logo.png",
-      "@id": "https://trilokidivinejourney.com",
-      "url": "https://trilokidivinejourney.com",
+      "image": "https://trilokigroup.in/assets/logo.png",
+      "@id": "https://trilokigroup.in",
+      "url": "https://trilokigroup.in",
       "telephone": "<%= settings.phone %>",
       "address": {
         "@type": "PostalAddress",
@@ -81,3 +81,4 @@ const viewsDir = path.join(__dirname, 'views');
         }
     }
 });
+
