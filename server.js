@@ -68,8 +68,29 @@ app.post('/api/inquiry', (req, res) => {
     const { name, phone, email, package: pkgInterest } = req.body;
     db.run('INSERT INTO Inquiries (name, phone, email, package_interest) VALUES (?, ?, ?, ?)',
         [name, phone, email, pkgInterest],
-        function(err) {
+        async function(err) {
             if (err) return res.status(500).json({ error: 'Database error' });
+
+            // Send email notification using Formsubmit API
+            try {
+                await fetch("https://formsubmit.co/ajax/hospitality.triloki@gmail.com", {
+                    method: "POST",
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        _subject: "New Website Inquiry: " + name,
+                        Name: name,
+                        Phone: phone,
+                        Email: email || 'Not Provided',
+                        Package: pkgInterest || 'Not Selected'
+                    })
+                });
+            } catch (e) {
+                console.error("Email notification failed", e);
+            }
+
             res.json({ success: true, message: 'Inquiry saved successfully!' });
         }
     );
