@@ -195,26 +195,6 @@ async function handleInquirySubmit(event) {
         const result = await response.json();
 
         if (result.success) {
-            // Send email via Formsubmit
-            try {
-                await fetch("https://formsubmit.co/ajax/hospitality.triloki@gmail.com", {
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        _subject: "New Website Inquiry: " + data.name,
-                        Name: data.name,
-                        Phone: data.phone,
-                        Email: data.email || 'Not Provided',
-                        Package: data.package || 'Not Selected'
-                    })
-                });
-            } catch (emailErr) {
-                console.error("Email sending failed:", emailErr);
-            }
-
             alert('Thank you! We will contact you soon.');
             form.reset();
             if (typeof closeModal === 'function') {
