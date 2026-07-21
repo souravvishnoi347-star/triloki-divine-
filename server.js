@@ -98,6 +98,12 @@ app.post('/api/inquiry', (req, res) => {
     );
 });
 
+app.get('/charter-services', (req, res) => {
+    db.get('SELECT * FROM Settings WHERE id = 1', (err, settings) => {
+        res.render('charter', { settings });
+    });
+});
+
 app.get('/chardham', (req, res) => {
     db.get('SELECT * FROM Settings WHERE id = 1', (err, settings) => {
         db.all('SELECT * FROM TourPackages', (err, packages) => {
