@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Charter Services | Helicopter for Weddings & Corporate | Triloki Divine Journey</title>
+    <title>VIP Charter Services | Triloki Divine Journey</title>
     <link rel="icon" type="image/png" href="/assets/logo.png">
     <meta name="description" content="Book premium helicopter charter services for weddings, corporate events, and VIP travel with Triloki Divine Journey.">
     <meta name="keywords" content="Helicopter Charter, Wedding Helicopter Booking, Corporate Helicopter, VIP Travel, Aerial Photography, Triloki Divine Journey">
@@ -18,16 +18,17 @@
     <style>
         .charter-hero {
             position: relative;
-            height: 60vh;
+            height: 50vh;
             min-height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.8)), url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)), url('/assets/chardham_1.jpg') center/cover;
             padding: 20px;
             margin-bottom: 50px;
+            border-bottom: 2px solid #d4af37;
         }
 
         .charter-hero h1 {
@@ -45,76 +46,33 @@
             opacity: 0.9;
         }
 
-        .charter-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .charter-card {
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .charter-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
-            border-color: #d4af37;
-        }
-
-        .charter-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .charter-card-content {
-            padding: 30px;
-        }
-
-        .charter-card-content h3 {
-            color: #d4af37;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .charter-card-content p {
-            color: #aaa;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        .whatsapp-cta {
+        .whatsapp-btn-large {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
             background: #25D366;
-            color: white;
-            padding: 12px 24px;
+            color: white !important;
+            padding: 12px 25px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.3s ease, transform 0.2s ease;
+            transition: all 0.3s ease;
             width: 100%;
+            border: none;
+            cursor: pointer;
         }
 
-        .whatsapp-cta:hover {
+        .whatsapp-btn-large:hover {
             background: #128C7E;
-            transform: scale(1.02);
-            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
         }
 
-        .whatsapp-cta i {
-            font-size: 1.2rem;
+        .charter-footer-override {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 20px;
+            margin-top: 20px;
         }
 
         .why-choose-charter {
@@ -134,10 +92,6 @@
             margin: 40px auto 0;
         }
 
-        .feature-box {
-            padding: 20px;
-        }
-
         .feature-box i {
             font-size: 2.5rem;
             color: #d4af37;
@@ -146,11 +100,10 @@
         
         @media (max-width: 768px) {
             .charter-hero h1 { font-size: 2.5rem; }
-            .charter-hero { height: 50vh; }
         }
     </style>
 </head>
-<body>
+<body class="dark-theme">
     <main>
     <!-- Modern Two-Tier Navbar -->
     <header class="top-nav-container">
@@ -161,7 +114,7 @@
             
             <div class="nav-announcement">
                 <span class="pulse-dot"></span>
-                <span class="announcement-text">Premium Charter Services Available</span>
+                <span class="announcement-text">VIP Charter Services Available</span>
             </div>
 
             <div class="nav-actions">
@@ -182,77 +135,147 @@
         </div>
     </header>
 
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/#premium-heli-packages">Heli Tours</a>
+        <a href="/#mixed-journeys">Road Tours</a>
+        <a href="/charter-services">VIP Charter</a>
+        <a href="/testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
     <div class="charter-hero">
         <div class="container">
-            <h1>Premium Charter Services</h1>
-            <p>Elevate your journey with our exclusive helicopter charters. Tailored for weddings, corporate executives, and VIPs who value time and luxury.</p>
+            <h1>Premium Helicopter Charter</h1>
+            <p>Elevate your journey with our exclusive helicopter charters. Tailored for weddings, corporate executives, and VIPs who value luxury and exclusivity.</p>
         </div>
     </div>
 
-    <div class="container">
-        <div class="section-header" style="text-align: center; margin-bottom: 40px;">
-            <h2 style="color: #d4af37;">Our Specialized Services</h2>
-            <div class="divider" style="margin: 20px auto;"></div>
+    <!-- Services Grid (Using Premium Package UI) -->
+    <section class="premium-packages-section" style="padding-top: 0;">
+        <div class="section-header">
+            <h2>Our Specialized VIP Services</h2>
+            <p>100% Personalised, Private & Luxurious Aerial Travel.</p>
         </div>
-
-        <div class="charter-grid">
+        
+        <div class="premium-grid container">
+            
             <!-- Wedding Charter -->
-            <div class="charter-card">
-                <div class="charter-img" style="background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="charter-card-content">
-                    <h3><i class="fa-solid fa-rings-wedding" style="color: #d4af37;"></i> Weddings & Vidaai</h3>
-                    <p>Make a grand entrance on your special day. We provide luxurious helicopter services for Groom entries, Bride Vidaai, and flower showering for an unforgettable wedding experience.</p>
-                    <a href="https://wa.me/918445214371?text=Hi%2C%20I%20am%20interested%20in%20booking%20a%20Helicopter%20Charter%20for%20my%20Wedding." target="_blank" class="whatsapp-cta">
-                        <i class="fa-brands fa-whatsapp"></i> Enquire for Weddings
-                    </a>
+            <div class="premium-card">
+                <div class="premium-card-img-wrapper">
+                    <div class="premium-card-bg" style="background-image: url('/assets/chardham-heli.png');"></div>
+                    <div class="premium-badges">
+                        <span class="badge transport" style="background: #ff5e00; color: white;">
+                            <i class="fa-solid fa-helicopter"></i> Helicopter
+                        </span>
+                        <span class="badge vip">VIP Wedding</span>
+                    </div>
+                </div>
+                <div class="premium-card-content">
+                    <h3>Weddings & Vidaai</h3>
+                    <div class="premium-details">
+                        <p><i class="fa-solid fa-star"></i> Grand Entry</p>
+                        <p><i class="fa-solid fa-star"></i> Flower Shower</p>
+                    </div>
+                    <ul class="premium-inclusions">
+                        <li><i class="fa-solid fa-check"></i> Luxurious Groom Entry</li>
+                        <li><i class="fa-solid fa-check"></i> Memorable Bride Vidaai</li>
+                        <li><i class="fa-solid fa-check"></i> Premium Flower Showering</li>
+                        <li><i class="fa-solid fa-check"></i> Customized Arrangements</li>
+                    </ul>
+                    <div class="charter-footer-override">
+                        <a href="https://wa.me/918445214371?text=Hi%2C%20I%20am%20interested%20in%20booking%20a%20VIP%20Helicopter%20Charter%20for%20a%20Wedding." target="_blank" class="whatsapp-btn-large">
+                            <i class="fa-brands fa-whatsapp"></i> Get Quote on WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <!-- Corporate Travel -->
-            <div class="charter-card">
-                <div class="charter-img" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="charter-card-content">
-                    <h3><i class="fa-solid fa-user-tie" style="color: #d4af37;"></i> Corporate & VIP Travel</h3>
-                    <p>Time is money. Avoid traffic and travel in ultimate privacy and comfort. Perfect for political rallies, executive transport, site visits, and high-profile VIP movements.</p>
-                    <a href="https://wa.me/918445214371?text=Hi%2C%20I%20am%20interested%20in%20booking%20a%20Helicopter%20Charter%20for%20Corporate/VIP%20Travel." target="_blank" class="whatsapp-cta">
-                        <i class="fa-brands fa-whatsapp"></i> Book VIP Charter
-                    </a>
+            <div class="premium-card">
+                <div class="premium-card-img-wrapper">
+                    <div class="premium-card-bg" style="background-image: url('/assets/dodham-heli.png');"></div>
+                    <div class="premium-badges">
+                        <span class="badge transport" style="background: #ff5e00; color: white;">
+                            <i class="fa-solid fa-helicopter"></i> Helicopter
+                        </span>
+                        <span class="badge vip">Corporate</span>
+                    </div>
+                </div>
+                <div class="premium-card-content">
+                    <h3>Corporate & VIP Travel</h3>
+                    <div class="premium-details">
+                        <p><i class="fa-solid fa-star"></i> Private Charter</p>
+                        <p><i class="fa-solid fa-star"></i> Time Saving</p>
+                    </div>
+                    <ul class="premium-inclusions">
+                        <li><i class="fa-solid fa-check"></i> Political & VIP Movement</li>
+                        <li><i class="fa-solid fa-check"></i> Quick Site Visits</li>
+                        <li><i class="fa-solid fa-check"></i> Extreme Privacy</li>
+                        <li><i class="fa-solid fa-check"></i> Comfortable Interiors</li>
+                    </ul>
+                    <div class="charter-footer-override">
+                        <a href="https://wa.me/918445214371?text=Hi%2C%20I%20am%20interested%20in%20booking%20a%20VIP%20Helicopter%20Charter%20for%20Corporate/VIP%20Travel." target="_blank" class="whatsapp-btn-large">
+                            <i class="fa-brands fa-whatsapp"></i> Get Quote on WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <!-- Aerial Photography -->
-            <div class="charter-card">
-                <div class="charter-img" style="background-image: url('https://images.unsplash.com/photo-1506509923838-51829e2f9d6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="charter-card-content">
-                    <h3><i class="fa-solid fa-camera-retro" style="color: #d4af37;"></i> Aerial Filming</h3>
-                    <p>Capture breathtaking landscapes, film sequences, or conduct aerial surveys. Our experienced pilots ensure smooth flights for perfect cinematic and photography shots.</p>
-                    <a href="https://wa.me/918445214371?text=Hi%2C%20I%20am%20interested%20in%20booking%20a%20Helicopter%20Charter%20for%20Aerial%20Filming/Photography." target="_blank" class="whatsapp-cta">
-                        <i class="fa-brands fa-whatsapp"></i> Enquire Details
-                    </a>
+            <div class="premium-card">
+                <div class="premium-card-img-wrapper">
+                    <div class="premium-card-bg" style="background-image: url('/assets/3d_helicopter.png'); background-size: contain; background-repeat: no-repeat; background-color: #0a0a0a;"></div>
+                    <div class="premium-badges">
+                        <span class="badge transport" style="background: #ff5e00; color: white;">
+                            <i class="fa-solid fa-helicopter"></i> Helicopter
+                        </span>
+                        <span class="badge vip">Filming</span>
+                    </div>
+                </div>
+                <div class="premium-card-content">
+                    <h3>Aerial Filming & Surveys</h3>
+                    <div class="premium-details">
+                        <p><i class="fa-solid fa-star"></i> Stable Flight</p>
+                        <p><i class="fa-solid fa-star"></i> Pro Pilots</p>
+                    </div>
+                    <ul class="premium-inclusions">
+                        <li><i class="fa-solid fa-check"></i> Cinematic Photography</li>
+                        <li><i class="fa-solid fa-check"></i> Land & Project Surveys</li>
+                        <li><i class="fa-solid fa-check"></i> Experienced Aviators</li>
+                        <li><i class="fa-solid fa-check"></i> Door-off flights (Subject to App.)</li>
+                    </ul>
+                    <div class="charter-footer-override">
+                        <a href="https://wa.me/918445214371?text=Hi%2C%20I%20am%20interested%20in%20booking%20a%20VIP%20Helicopter%20Charter%20for%20Aerial%20Filming." target="_blank" class="whatsapp-btn-large">
+                            <i class="fa-brands fa-whatsapp"></i> Get Quote on WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
     <div class="why-choose-charter">
         <div class="container">
-            <h2 style="color: #fff;">Why Choose Our Fleet?</h2>
+            <h2 style="color: #d4af37;">Why Choose Our Fleet?</h2>
             <div class="features-grid">
                 <div class="feature-box">
                     <i class="fa-solid fa-shield-halved"></i>
-                    <h4>Highest Safety Standards</h4>
+                    <h4 style="color: #fff;">Highest Safety</h4>
                 </div>
                 <div class="feature-box">
                     <i class="fa-solid fa-plane-departure"></i>
-                    <h4>Modern Fleet</h4>
+                    <h4 style="color: #fff;">Modern Fleet</h4>
                 </div>
                 <div class="feature-box">
                     <i class="fa-solid fa-user-clock"></i>
-                    <h4>On-Time Departures</h4>
+                    <h4 style="color: #fff;">On-Time Departures</h4>
                 </div>
                 <div class="feature-box">
                     <i class="fa-solid fa-gem"></i>
-                    <h4>Luxury Interiors</h4>
+                    <h4 style="color: #fff;">Luxury Interiors</h4>
                 </div>
             </div>
         </div>
