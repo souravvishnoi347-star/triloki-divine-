@@ -1,26 +1,22 @@
 {
-  "version": 2,
-  "builds": [
+  "headers": [
     {
-      "src": "server.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": [
-          "views/**",
-          "assets/**",
-          "style.css",
-          "premium.css",
-          "mobile-patch.css",
-          "script.js",
-          "database.sqlite"
-        ]
-      }
-    }
-  ],
-  "routes": [
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
     {
-      "src": "/(.*)",
-      "dest": "/server.js"
+      "source": "/(.*)\\.(mp4|jpg|jpeg|png|webp|gif|css|js|woff2|svg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }

@@ -128,7 +128,7 @@
                 <% if(typeof reviews !== 'undefined') { %>
                     <% reviews.videos.forEach((vid, index) => { %>
                     <div class="review-card video-card" style="width: 100%; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-                        <video class="review-video" src="/assets/<%= vid %>" controls style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/16;"></video>
+                        <video class="review-video" src="/assets/<%= vid %>" controls preload="none" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/16;"></video>
                     </div>
                     <% }) %>
                     
